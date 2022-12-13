@@ -30,26 +30,26 @@ const TextForm = () => {
     const newText = text.split(/[ ]+/);
     setText(newText.join(" "));
   };
-  const wordCount = (text)=>{
-    if(text.length === 0) return 0;
+
+  const wordCount = (text) => {
+    if (text.length === 0) return 0;
     let count = 0;
-    for(let i = 0; i<text.length; i++)
-    {
-      if(text[i] === ' ') count++;
-      if(text[i] === text[i+1] && text[i] === ' ') count--;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === " ") count++;
+      if (text[i] === text[i + 1] && text[i] === " ") count--;
     }
     if(text[0] === ' ') count--;
     if(text[text.length-1] === ' ') count--;
     return ++count;
-  }
-  const charCount = (text)=>{
+  };
+  
+  const charCount = (text) => {
     let count = text.length;
-    for(let i = 0; i<text.length; i++)
-    {
-      if(text[i] === ' ') count--;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === " ") count--;
     }
     return count;
-  }
+  };
 
   return (
     <>
@@ -87,8 +87,7 @@ const TextForm = () => {
       <div className="container">
         <h1>Your Text Summary</h1>
         <p>
-          {wordCount(text)} words and{" "}
-          {charCount(text)} charecters
+          {wordCount(text)} words and {charCount(text)} charecters
         </p>
         <h2>Preview</h2> <hr />
         <p>{text}</p>
